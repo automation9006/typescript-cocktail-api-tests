@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-     "test:regression": "ENV=qa npx playwright test",
+     "test:regression": "ENV=qa npx playwright test --reporter=allure",
      "esLint":"npx eslint './**/*.{ts,tsx}'",
      "test:tag":"ENV=qa npx playwright test --grep @Regression",
      "allureGenReport": "npx allure generate allure-results --clean",
