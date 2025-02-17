@@ -21,15 +21,5 @@ jobs:
       run: npm run test:regression
     - name: Generate allure reports
       run: npm run allureGenReport
-    - name: Deploy Allure Report to GitHub Pages
-      run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git checkout --orphan gh-pages
-          git reset --hard
-          git clean -fd
-          mv allure-report/* .
-          git add .
-          git commit -m "Deploy Allure report"
-          git push -f https://${{ secrets.GH_PAT }}@github.com/automation9006/typescript-cocktail-api-tests.git gh-pages
+    
 
