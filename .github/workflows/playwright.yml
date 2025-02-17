@@ -19,10 +19,20 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npm run test:regression
-    - name: Generate Allure reports
-      run: npm run allureGenReport
-    - name: Publish Allure reports
-      run: npm run allurePublishReport
+    - name: Build test report
+      uses: simple-elf/allure-report-action@v1.7
+      if: always()
+      with:
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: build/allure-results
+    - name: Publish test report
+      uses: peaceiris/actions-gh-pages@v3
+      if: always()
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
