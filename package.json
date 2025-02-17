@@ -1,0 +1,33 @@
+{
+  "name": "typescript-cocktail-api-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+     "test:regression": "ENV=qa npx playwright test",
+     "esLint":"npx eslint './**/*.{ts,tsx}'",
+     "test:tag":"ENV=qa npx playwright test --grep @Regression",
+     "allureGenReport": "npx allure generate allure-results --clean",
+    "allurePublishReport": "npx allure open allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+   "@eslint/js": "^9.20.0",
+    "@faker-js/faker": "^9.5.0",
+    "@playwright/test": "^1.50.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.13.4",
+    "allure-commandline": "^2.32.2",
+    "allure-playwright": "^3.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.20.1",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
